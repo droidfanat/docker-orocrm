@@ -1,0 +1,3 @@
+my_call_homepage:
+    path:     /
+    defaults: { _controller: myCallBundle:Default:index }

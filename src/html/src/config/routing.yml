@@ -1,0 +1,5 @@
+my_call:
+    resource: "@myCallBundle/Resources/config/routing.yml"
+    #prefix:   /
+    type:     annotation
+
