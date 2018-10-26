@@ -1,7 +1,6 @@
 How to use
 
 ```bash
-git clone https://github.com/naga3/docker-lamp.git
-cd docker-lamp/
+https://github.com/droidfanat/docker-orocrm.git
 docker-compose up -d
 ```
