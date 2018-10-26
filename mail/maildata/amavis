@@ -1,0 +1,21 @@
+From amavis@mail.oro.demo  Wed Sep 26 12:18:03 2018
+Return-Path: <amavis@mail.oro.demo>
+X-Original-To: amavis
+Delivered-To: amavis@mail.oro.demo
+Received: by mail.oro.demo (Postfix, from userid 109)
+	id 8A8721F26F; Wed, 26 Sep 2018 12:18:03 +0000 (UTC)
+From: root@mail.oro.demo (Cron Daemon)
+To: amavis@mail.oro.demo
+Subject: Cron <amavis@mail> test -e /usr/sbin/amavisd-new-cronjob && /usr/sbin/amavisd-new-cronjob sa-sync
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 8bit
+X-Cron-Env: <SHELL=/bin/sh>
+X-Cron-Env: <HOME=/var/lib/amavis>
+X-Cron-Env: <PATH=/usr/bin:/bin>
+X-Cron-Env: <LOGNAME=amavis>
+Message-Id: <20180926121803.8A8721F26F@mail.oro.demo>
+Date: Wed, 26 Sep 2018 12:18:03 +0000 (UTC)
+
+config: created user preferences file: /var/lib/amavis/.spamassassin/user_prefs
+

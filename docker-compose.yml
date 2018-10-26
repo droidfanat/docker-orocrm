@@ -1,0 +1,60 @@
+version: '2'
+services:
+  mysql:
+    build: ./mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+    volumes:
+      - db:/var/lib/mysql
+    ports:
+      - '3306:3306'
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - mysql
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+    ports:
+      - '8010:80'
+  php:
+    build: ./php
+    ports:
+      - '80:80'
+      - '8080:8080'
+    volumes:
+      - ./src:/var/www
+      - ./apache/sites-enabled:/etc/apache2/sites-enabled/
+    depends_on:
+      - mysql
+      - mail
+    links:
+      - "mysql:mysql"
+
+  mail:
+    image: tvial/docker-mailserver:latest
+    hostname: mail
+    domainname: oro.demo
+    container_name: mail
+    ports:
+    #- "25:25"
+    #- "143:143"
+    - "587:587"
+    - "993:993"
+    volumes:
+    - ./mail/maildata:/var/mail
+    - ./mail/mailstate:/var/mail-state
+    - ./mail/config/:/tmp/docker-mailserver/
+    environment:
+    - ENABLE_SPAMASSASSIN=1
+    - ENABLE_CLAMAV=1
+    - ENABLE_FAIL2BAN=1
+    - ENABLE_POSTGREY=1
+    - ONE_DIR=1
+    - DMS_DEBUG=0
+    cap_add:
+    - NET_ADMIN
+    - SYS_PTRACE
+
+volumes:
+  db:
